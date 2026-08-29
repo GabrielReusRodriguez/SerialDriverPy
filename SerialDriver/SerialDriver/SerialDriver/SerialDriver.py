@@ -43,13 +43,17 @@ class SerialDriver:
             raise SerialDriverException("Error al cerrar el puerto serie")
 
     def isOpen(self):
-        return self.ser.isOpen
+        status = self.ser.isOpen
+        if callable(status):
+            return status()
+        return status
 
     def read(self,size):
         try:
             return self.ser.read(size)
         except serial.serialutil.SerialException as e:
             raise SerialDriverException("Error al leer del puerto serie")
+
     def readLine(self):
         try:
             return self.ser.readline()
