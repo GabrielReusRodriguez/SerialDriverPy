@@ -63,7 +63,7 @@ En Windows puedes usar un puerto con formato `//./COM3`, tal y como aparece en e
 - `config(portName)`: configura el puerto y los valores por defecto de comunicación:
   - baudrate: `9600`
   - bytesize: `8`
-  - parity: `none`
+  - parity: `N` (`PARITY_NONE`)
   - stopbits: `1`
   - timeout de lectura: `1s`
   - timeout de escritura: `2s`
@@ -80,7 +80,7 @@ Excepción usada para encapsular errores de apertura, escritura, lectura y cierr
 
 ## Ejemplo incluido
 
-El archivo `/home/runner/work/SerialDriverPy/SerialDriverPy/SerialDriver/SerialDriver/main.py` muestra un ejemplo de lectura continua desde `//./COM3`.
+El archivo `SerialDriver/SerialDriver/main.py` muestra un ejemplo de lectura continua desde `//./COM3`.
 
 ## Pruebas
 
