@@ -74,14 +74,13 @@ def load_module():
     )
     sys.modules["serial"] = fake_serial_module
 
-    serial_driver_module = importlib.import_module("SerialDriver.SerialDriver")
+    sys.modules.pop("SerialDriver.SerialDriver", None)
+    sys.modules.pop("SerialDriver.SerialDriverException", None)
+
     serial_driver_exception_module = importlib.import_module(
         "SerialDriver.SerialDriverException"
     )
-    serial_driver_module = importlib.reload(serial_driver_module)
-    serial_driver_exception_module = importlib.reload(
-        serial_driver_exception_module
-    )
+    serial_driver_module = importlib.import_module("SerialDriver.SerialDriver")
     return (
         serial_driver_module.SerialDriver,
         serial_driver_exception_module.SerialDriverException,
